@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Custom drawing area for sketching -->
+    <com.example.photoapp_final.MyDrawingPlace
+        android:id="@+id/drawing_area"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:background="#EEEEEE" />
+
+    <!-- Tag input field for saving a sketch -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tags:" />
+
+        <EditText
+            android:id="@+id/tagInput"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Enter tags separated by commas" />
+    </LinearLayout>
+
+    <!-- Clear, Save, and Auto Tag buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="10dp">
+
+        <Button
+            android:id="@+id/clearDrawingButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Clear Drawing"
+            android:onClick="clearTheDrawing" />
+
+        <Button
+            android:id="@+id/saveDrawingButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save Drawing"
+            android:onClick="saveDrawing"
+            android:layout_marginStart="20dp" />
+
+        <Button
+            android:id="@+id/autoTagButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Auto Tag"
+            android:onClick="autoTagSketch"
+            android:layout_marginStart="20dp" />
+    </LinearLayout>
+
+    <!-- Search input and Find button for searching sketches by tag -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+
+        <EditText
+            android:id="@+id/searchTagInput"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Search by tag" />
+
+        <Button
+            android:id="@+id/findButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Find"
+            android:onClick="findDrawing" />
+    </LinearLayout>
+
+    <!-- ListView to display saved sketches with metadata -->
+    <ListView
+        android:id="@+id/sketchListView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="20dp"
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="1dp" />
+
+    <!-- Back button to return to the opening activity -->
+    <Button
+        android:id="@+id/backButtonSketch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        android:layout_marginTop="10dp"
+        android:onClick="goBackToOpening" />
+</LinearLayout>
